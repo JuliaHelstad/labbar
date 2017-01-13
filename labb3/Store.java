@@ -1,0 +1,220 @@
+	       /**
+		*@author Julia Helstad
+		*/
+
+
+
+
+import java.util.LinkedList;
+
+public class Store
+{
+    private Register[] registers;
+    private int thresholdForNewRegister;
+    
+
+    public Store(int amountOfRegisters, int thresholdForNewRegister)
+    {
+	this.registers = new Register[amountOfRegisters];
+	for (int i = 0; i < registers.length; ++i) 
+	    {
+		registers[i] = new Register();
+	    }
+	registers[0].open();
+	this.thresholdForNewRegister = thresholdForNewRegister;
+    }
+    
+    /**
+     * calcualtes the average queue length of all the registers.
+     * 
+     * @return
+     * the average queue length in the store.
+     */    
+    public double getAverageQueueLength()
+    {
+	double all = 0;
+	double openRegisters = 0;
+	for(int i = 0; i < registers.length; i++)
+	    {
+		if (registers[i] != null && registers[i].isOpen())
+		    {
+			int tmp  = registers[i].getQueueLength();
+			openRegisters++;
+			all = all + tmp;
+		    }				
+	    }
+	return all/openRegisters;
+    }
+
+    /**
+     * adds a new customer to the shortest queue. 
+     * 
+     * @param c
+     * the customer that will be added to a queue.
+     */    
+    public void newCustomer(Customer c)
+    {
+	Register q = minQueue();
+       
+	if (q.getQueueLength() >= thresholdForNewRegister) {
+	    openNewRegister();
+	    q = minQueue();
+	    if (q.getQueueLength() >= thresholdForNewRegister) {
+		return;
+	    }
+	}
+	if (q.isOpen())
+	    q.addToQueue(c);
+    }
+
+    /** 
+     * gets the total sold groceries from all the registers.
+     * 
+     * @return
+     * the total sold groceries.
+     */    
+    public int getTotalGroceries()
+    {
+	int totalGroceries = 0;
+
+	for(int i = 0; i < registers.length; i++)
+	    {	
+		totalGroceries = totalGroceries + registers[i].customerServed;
+	    }
+
+	return totalGroceries;
+    }
+
+    /**
+     * calcualtes the average wait time in the store.
+     * 
+     * @return
+     * the average wait time.
+     */    
+    public double averageWaitTime()
+    {
+        int averageQueueTime = 0;
+	int numberOfOpenRegisters = 0;
+
+	for(int i = 0; i < registers.length; i++)
+	    {
+		averageQueueTime += registers[i].getAverageQueueTime();
+
+		if (registers[i].isOpen()) 
+		    {
+			numberOfOpenRegisters++;
+		    }
+	    }
+	return averageQueueTime/numberOfOpenRegisters;
+    }
+
+    /**
+     * finds the shortest queueu.
+     * 
+     * @return
+     * the register that has the shortest queue.
+     */    
+    private Register minQueue()
+    {
+	Register min = registers[0];
+	for(int i = 0; i < registers.length; i++)
+	    {
+		if(registers[i].getQueueLength() < min.getQueueLength() && registers[i].isOpen())
+		    {
+			min = registers[i];
+		    }
+	    }
+
+	return min;
+    } 
+
+    /**
+     * tells what each open registers will do in a step.
+     */    
+    public void step()
+    {
+
+	for(int i = 0; i < registers.length; ++i)
+	    {
+		if (registers[i].isOpen() == true)		    		
+		    try
+			{
+			    registers[i].step();
+			}	
+		    catch(ExceptionThing e)
+			{		
+			    System.out.println(e);
+			}
+	    }
+    }
+
+    /**
+     * opens a register, if possible. 
+     */    
+    public void openNewRegister()
+    {
+	for(int i = 0; i < registers.length; ++i)
+	    {		
+		if(registers[i].isOpen() == false )
+		    {
+			registers[i].open();
+			break;
+		    }	
+	    }	
+    }
+
+    /**
+     * makes a string of the things you want to print out for the registers.
+     * 
+     * @return
+     * a string of the registers states.
+     */    
+    public String toString ()
+    {
+	String str = "";
+	for (int i = 0; i < registers.length;++i) 
+	    {
+		if (registers[i] != null) {
+		    if(registers[i].queue.first() == null)
+			{
+			    str += "X []" + "\n";
+			}
+		    else
+			{
+			    str += "[" + registers[i].queue.first().getCustomerGorceries() + "]";
+			    int queueLength = registers[i].getQueueLength();
+			    for(int j = 0; j < queueLength; j++)
+				{
+				    str += "@";
+				}
+			    str += "\n";
+			}
+		}
+	
+	    }
+	return str;
+    }
+
+    /** 
+     * puts every done customer in a list. 
+     * 
+     * @return
+     * the list of all done customers.
+     */    
+    public LinkedList<Customer> getDoneCustomers()
+    {
+	LinkedList<Customer> customers = new LinkedList<Customer>();
+	for(int i = 0; i < registers.length;++i)
+	    {
+		if(registers[i].currentCustomerIsDone() == true)
+		    {
+			customers.add(registers[i].removeCurrentCustomer());   	
+		    }
+		if(registers[i].currentCustomerIsDone() == false)
+		    {
+			System.out.println("customer is not done yet");
+		    }
+	    }
+	return customers;
+    }
+}

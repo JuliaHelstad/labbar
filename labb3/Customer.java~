@@ -1,0 +1,80 @@
+public class Customer 
+{
+    private double bornTime;
+    private int groceries;
+
+
+    public Customer(double bornTime, int groceries)
+    {
+	this.bornTime = bornTime;
+	this.groceries = groceries;
+    }
+
+     /**
+     * @brief 
+     * makes a string.
+     * 
+     * @returns
+     * a string of the customers borntime and groceries.
+     */    
+    public String toString()
+    {
+	String str = "bornTime = " + bornTime + ", groceries = " + groceries;
+	return str;
+    }
+
+    /**
+     * @brief 
+     * gets groceries. 
+     * 
+     * @returns
+     * the customer's groceries.
+     */    
+    public int getCustomerGorceries()
+    {
+	return groceries;
+    }
+
+    /**
+     * @brief 
+     * gets borntime. 
+     * 
+     * @returns
+     * the customer's borntime.
+     */    
+    public double getBornTime() 
+    {
+	return bornTime;
+    }
+
+    /**
+     * @brief 
+     * finds out if a customer is done. 
+     * 
+     * @returns
+     * true if the customer is done. Else it will return false.
+     */    
+    public boolean isDone ()
+    {
+	if (this.groceries == 0)
+	    {
+		return true;
+	    }
+	else 
+	    {
+		return false;
+	    }
+    }
+
+    /**
+     * @brief 
+     * subtracts the customer's groceries by one.
+     */    
+    public void serve ()
+    {	
+	groceries--;
+    }
+
+}
+
+
