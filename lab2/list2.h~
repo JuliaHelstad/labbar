@@ -1,0 +1,21 @@
+#ifndef __LIST2_H_
+#define __LIST2_H_
+#include "tree2.h"
+
+///////////////////////////funktioner
+void free_shelf (void *a);
+void print_shelf (void *a);
+int compare_shelf (void *a, void *b);
+void add_shelf (void *a, void *b);
+void list_print(list_t* list);
+void *copy_shelf(void *data);
+goods_t *find_shelf_in_tree(tree_t *root, char *shelf_name);
+list_t *find_shelf_in_list(list_t *list, char *name);
+goods_t *list_node_insert(goods_t *goods, list_t *new_node);
+shelf_t *make_shelf (char *shelf_name, int amount);
+list_t *make_list_node(shelf_t* data, cmp_t compare, free_t free_function, add_t add, print_t print, copy_t copy);
+list_t *copy_list(list_t *list);
+list_t *remove_list_node (list_t *list, list_t *node_to_remove);
+void remove_whole_list(list_t *list);
+  
+#endif
