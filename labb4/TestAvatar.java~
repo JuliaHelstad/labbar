@@ -1,0 +1,86 @@
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class TestAvatar {
+
+    private String name;
+    private int hp;
+    public ArrayList<Course> undoneCourses;
+    public ArrayList<Course> doneCourses;
+    public ArrayList<Item> inventory;
+    private int space;
+    private int energy =100 ;
+    private Scanner scan;
+    private Room currentRoom;
+
+    public LinkedList<Room> roomList;
+
+    public TestAvatar(Room currentRoom, LinkedList<Room> list) {
+	System.out.println("Enter name: ");
+	Scanner scan = new Scanner(System.in);
+	this.name = scan.nextLine();
+	this.hp = 60;
+	this.undoneCourses = new ArrayList<Course>();
+	this.doneCourses = new ArrayList<Course>();
+	this.inventory = new ArrayList<Item>();
+	this.space = 0;
+	this.currentRoom = currentRoom;
+	this.roomList = list;
+    }
+
+   // test to check yearly salary
+   @Test
+   public void testRoomListToString()
+    {
+      assertEquals();
+   }
+
+    @test
+    public void testUseKey()
+    {
+	pickUp(key);
+	avatar.useKey(n);
+	assertEquals(this.space, 0);
+    }
+
+    @test
+    public void testReadyToGraduate()
+    {
+	avatar.readyToGraduate();
+	assertEquals(false, false);
+    }
+
+    @test
+    public void testGo()
+    {
+	avatar.go("k");
+	assertEquals(this.currentRoom, "k");
+    }
+
+    
+
+}
+
+public static void main(String [] args)
+{
+    //LinkedList<Room> list = new LinkedList<Room>;
+    Key key = new Key();
+    Coffee Coffee = new Coffee();
+    Door n = new Door("k", false, north);
+    Door e = new Door(null, null, null);
+    Door s = new Door(null, null, null);
+    Door w = new Door(null, null, null);
+    Student s = new Student("jahaja", c, "jahaja");
+    Room r = new Room("r", key, s, null, n, e, s, w, null);
+    addToRoomList(r);
+    Door nn = new Door(null, null, null);
+    Door ee = new Door(null, null, null);
+    Door ss = new Door("r", true, south);
+    Door ww = new Door(null, null, null);
+    Room k = new Room("k", Coffee, null, null, nn, ee, ss, ww, null);
+    addToRoomList(k)
+    Avatar a = new Avatar(r, list);
+    
+   
+    
+}

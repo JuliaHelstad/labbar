@@ -1,0 +1,26 @@
+item; Key;
+course; hej;10; hejsan;
+teacher; lol;hej; svar1; svar2;svar3;1;
+student; apa; course; jag heter apa;
+door; sexton;true; north;
+door; lol;true; south;
+door; kek;false; east;
+door; l;false; west;
+room; femton;
+item; är häst en frukt?;
+course; Häst?frukt?;100; är häst en frukt?;
+teacher; ponny, course; SÄGRÅ?!; frukt; apa; hest;2;
+student; hest; course; Jag är en apa;
+door; femton;true; south;
+door; lol;true;lol;
+door; kek;false;kek;
+door;apa;true;apa;
+room; sexton;
+end
+
+
+
+
+
+
+

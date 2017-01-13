@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class Sfinx extends Creature{
+
+
+    public Sfinx(){
+	super("Sfinx", null,"Gult är fult.");
+    }
+
+    public String graduate(){
+	return "CONGRATS you did it! Here you have some loving words from the creatures of the game! Many success. Wow, very Graduate. Much happy. You go LadyBoy."
+    }
+    
+}

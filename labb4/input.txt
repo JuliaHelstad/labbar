@@ -1,0 +1,52 @@
+item;Key;
+course;Är häst en frukt och andra filosofiska frågor;30;häst&filosofi;
+teacher;Pergnutt;Är häst en frukt?;Vad annars?;Jag är en häst.;Jag blir kränkt.;2;
+student;Pergnutt junior;Är häst en frukt och andra filosofiska frågor;"Gnägg";
+door;olelroom;false;north;
+door;daPlac3to_be;true;south;
+door;1515;false;east;
+door;skrubben;true;west;
+room;philosopherroom;
+item;Coffee;
+course;Kan du inte läsa;30;KanDuLäsaNU?;
+teacher;Olel;Vad står det här?;Hur kan jag veta som inte kan läsa?;Kallade du mig precis tjock?????;Jag blir kränkt.;3;
+student;Julius;Kan du inte läsa?;Kan inte du heller läsa? Va trevligt.;
+door;null;true;north;
+door;null;true;east;
+door;philosopherroom;true;south;
+door;null;true;west;
+room;olelroom;
+item;Key;
+course;Rock och sånt;30;"AAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHardrockhalleluja";
+teacher;Jätten sven;Varför har vi rockare långt hår?;För ni inte vill se er själva i spegeln.;Ni vill skydda era öron från hög musik.;Jag blir kränkt.;2;
+student;Steph;Rock och sånt;VAD SA DU?;
+door;null;true;north;
+door;null;true;east;
+door;null;true;south;
+door;philosopherroom;true;west;
+room;daPlac3to_be;
+item;häst&filosofi;
+course;Återvinning;30;DennaÄrAvÅtervunnenPlast;
+teacher;Kurt;Pantar du burkar?;Hur skulle jag annars kunna vara såhär rik?;Finns det pandor i Sverige??;Jag blir kränkt.;1;
+door;philosopherroom;true;north;
+door;null;true;east;
+door;null;true;south;
+door;null;true;west;
+room;1515;
+item;Coffee;
+Sfinx;
+teacher;null;null;null;null;null;1;
+student;null;null;null;
+door;null;true;north;
+door;philosopherroom;true;east;
+door;null;true;south;
+door;null;true;west;
+room;skrubben;
+end
+
+
+
+
+
+
+
